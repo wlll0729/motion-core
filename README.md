@@ -17,7 +17,7 @@
 | 2 | film 接入（UMD + `MO.byName()` + 镜头桥） | **已完成** |
 | 3 | 词典接入（实验室 10 个导出 tab + 能力判断接 core） | **已完成（本地 fork）** |
 | 4 | vibe-reel 接入（`E.byName()`，历史 E 表原样保留） | **已完成** |
-| 5 | CI 闭环 | 待开工 |
+| 5 | CI 闭环（core lint + 发布前自检 + 一键全量验证） | **已完成** |
 
 ## 目录
 
@@ -76,6 +76,10 @@ ex.json(spec);                         // → 归一化 spec + 曲线采样表
 命令行：
 
 ```bash
+npm run ci                        # lint:strict + test + build + dist 同步校验
+python scripts/verify-all.py            # 全量：core 自身 + 3 个消费方（9 项）
+python scripts/verify-all.py --quick    # 只跑不需要浏览器的部分
+
 node bin/motion-lint.js vocab/ --strict   # 词表静态检查
 node scripts/gen-terms.mjs                # 从词典数据重新生成 terms.v1.json
 node scripts/gen-grammar.mjs              # 重新生成 grammar.film.v1.json
@@ -87,6 +91,34 @@ node --test "test/*.test.mjs"             # 37 项测试
 python scripts/verify-lexicon-integration.py ../motion-lexicon-fork   # 词典集成验证
 python scripts/verify-film-integration.py ../film_ai_three/代码工程   # film 集成验证
 python scripts/verify-vibe-reel-integration.py films/onion-tears      # vibe-reel 集成验证
+```
+
+## CI
+
+- `motion-core`：`.github/workflows/ci.yml` —— lint（--strict）、37 项测试、
+  `dist/core.umd.js` 与源码同步校验、词表可重复生成校验。
+- `motion-lexicon`：`.github/workflows/pages.yml` 拆成 `check` → `deploy` 两个 job，
+  **自检不过就不部署**（原来直接 upload + deploy，check.sh 形同虚设）。
+- film / vibe-reel 工程：`templates/ci/` 里备好了工作流模板（这两个工程目前不是 git 仓库）。
+
+## 变更词表后要做什么
+
+```bash
+# 1. 改 vocab/*.json（或改上游数据后重新生成）
+npm run gen
+
+# 2. 重建三端产物
+npm run build
+cp dist/core.umd.js ../motion-lexicon-fork/assets/core.js
+cp dist/core.umd.js ../film_ai_three/代码工程/lib/core.js
+cp dist/core.umd.js ../film_ai_chair/代码工程/lib/core.js
+cp dist/core.umd.js ~/.agents/skills/vibe-reel/engine/core.js
+
+# 3. film 工程更新哈希清单
+sha256sum ../film_ai_three/代码工程/lib/core.js
+
+# 4. 全量验证
+python scripts/verify-all.py
 ```
 
 ## 曲线从哪来

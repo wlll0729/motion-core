@@ -1,8 +1,8 @@
 # motion-core 设计稿
 
-> 版本：v0.5（Phase 0/1/2/3/4 已完成）
+> 版本：v0.6（Phase 0–5 全部完成）
 > 日期：2026-11-07
-> 状态：Phase 0（内核）、1（内容层）、2（film 接入）、3（词典接入，本地 fork）、4（vibe-reel 接入）已交付并验收；Phase 5 待开工
+> 状态：五个 Phase 全部交付并验收
 
 ---
 
@@ -692,6 +692,20 @@ motion-lint vocab/ --strict
 **未改动**：`engine/render_api.js` 的历史 `E` 表与 `ease()`、`engine/kit.js`、`engine/styles.js`、`audio.py`、`qa.py`、任何 `film.js`。
 
 **待办**：技能包改动应提回 vibe-reel 仓库（`alchaincyf/vibe-reel` 或用户自己的副本）。
+
+## 12.5 Phase 5 交付清单（CI 闭环）
+
+- [x] `motion-core/.github/workflows/ci.yml`：lint（--strict）+ 37 项测试 + `dist/` 同步校验 + 词表可重复生成校验
+- [x] `motion-core/.gitattributes`：固定 LF，避免 `git diff --exit-code` 被换行符漂移误报
+- [x] `motion-core/package.json` 增加 `ci` / `gen` 脚本
+- [x] `motion-lexicon-fork/.github/workflows/pages.yml` 拆成 `check` → `deploy`，**自检不过就不部署**
+- [x] `scripts/verify-all.py`：一键跑 9 项（core 4 项 + 三个消费方 5 项）
+- [x] `templates/ci/film-ai.yml` / `templates/ci/vibe-reel.yml`：两个非 git 工程的 CI 模板
+- [x] film 工程 `lib/core.sha256` 哈希清单（供 CI 校验 core.js 与构建产物同步）
+- [x] **验收：`python scripts/verify-all.py` → 9/9 通过**
+
+**仍待人工处理**：词典 fork 与 motion-core 都还没推到 GitHub（网络/凭据），
+所以两个仓库的 CI 目前只在本地跑过，尚未在 GitHub Actions 上实跑。
 
 ---
 
