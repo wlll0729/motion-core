@@ -541,7 +541,7 @@ function toSec(ms) { return ms / 1000; }
 
 return { PROPS, TARGETS, UNITS, DIRECTIONS, FILLS, STAGGER_FROM, CAMERA_KINDS, RM_STRATEGIES, ID_RE, SpecError, normalizeSpec, validateSpec, duration, toMs, toSec };
 })();
-__m["exporters\\_util"] = (function (__d0) {
+__m["exporters/_util"] = (function (__d0) {
 const { clamp01 } = __d0;
 /* motion-core · exporters/_util.js
    导出器共用工具：CSS 缓动、采样、transform 合成、分段分组。 */
@@ -630,7 +630,7 @@ function clamp01Export(t) { return clamp01(t); }
 
 return { cssEasing, sampleLinear, cssValue, composeDeclarations, groupSegments, moExpr, rkExpr, clamp01Export };
 })(__m["curves"]);
-__m["exporters\\css"] = (function (__d0) {
+__m["exporters/css"] = (function (__d0) {
 const { cssEasing, composeDeclarations, groupSegments } = __d0;
 /* motion-core · exporters/css.js
    导出为 CSS @keyframes / transition。
@@ -727,8 +727,8 @@ const cssTransition = {
 };
 
 return { css, cssTransition };
-})(__m["exporters\\_util"]);
-__m["exporters\\waapi"] = (function (__d0) {
+})(__m["exporters/_util"]);
+__m["exporters/waapi"] = (function (__d0) {
 const { cssEasing, composeDeclarations, groupSegments } = __d0;
 /* motion-core · exporters/waapi.js
    导出为 Web Animations API。多组并行动作 → 多次 animate 调用。 */
@@ -779,8 +779,8 @@ const waapi = {
 };
 
 return { waapi };
-})(__m["exporters\\_util"]);
-__m["exporters\\_values"] = (function (__d0) {
+})(__m["exporters/_util"]);
+__m["exporters/_values"] = (function (__d0) {
 const { groupSegments } = __d0;
 /* motion-core · exporters/_values.js
    各平台共用的「spec → 目标值」换算。 */
@@ -823,8 +823,8 @@ function warnExtraGroups(spec, warnings) {
 }
 
 return { PROP_NAME, valueOf, firstGroup, warnExtraGroups };
-})(__m["exporters\\_util"]);
-__m["exporters\\gsap"] = (function (__d0, __d1) {
+})(__m["exporters/_util"]);
+__m["exporters/gsap"] = (function (__d0, __d1) {
 const { groupSegments } = __d0;
 const { PROP_NAME } = __d1;
 /* motion-core · exporters/gsap.js */
@@ -888,8 +888,8 @@ const gsap = {
 };
 
 return { gsap };
-})(__m["exporters\\_util"], __m["exporters\\_values"]);
-__m["exporters\\framer"] = (function (__d0, __d1) {
+})(__m["exporters/_util"], __m["exporters/_values"]);
+__m["exporters/framer"] = (function (__d0, __d1) {
 const { groupSegments } = __d0;
 const { PROP_NAME } = __d1;
 /* motion-core · exporters/framer.js */
@@ -954,8 +954,8 @@ const framer = {
 };
 
 return { framer };
-})(__m["exporters\\_util"], __m["exporters\\_values"]);
-__m["exporters\\swift"] = (function (__d0, __d1) {
+})(__m["exporters/_util"], __m["exporters/_values"]);
+__m["exporters/swift"] = (function (__d0, __d1) {
 const { groupSegments } = __d0;
 const { PROP_NAME } = __d1;
 /* motion-core · exporters/swift.js */
@@ -1033,8 +1033,8 @@ const swift = {
 };
 
 return { swift };
-})(__m["exporters\\_util"], __m["exporters\\_values"]);
-__m["exporters\\compose"] = (function (__d0, __d1) {
+})(__m["exporters/_util"], __m["exporters/_values"]);
+__m["exporters/compose"] = (function (__d0, __d1) {
 const { groupSegments } = __d0;
 const { PROP_NAME } = __d1;
 /* motion-core · exporters/compose.js */
@@ -1106,8 +1106,8 @@ const compose = {
 };
 
 return { compose };
-})(__m["exporters\\_util"], __m["exporters\\_values"]);
-__m["exporters\\tailwind"] = (function (__d0, __d1) {
+})(__m["exporters/_util"], __m["exporters/_values"]);
+__m["exporters/tailwind"] = (function (__d0, __d1) {
 const { groupSegments } = __d0;
 const { PROP_NAME } = __d1;
 /* motion-core · exporters/tailwind.js */
@@ -1165,8 +1165,8 @@ const tailwind = {
 };
 
 return { tailwind };
-})(__m["exporters\\_util"], __m["exporters\\_values"]);
-__m["exporters\\film-mo"] = (function (__d0, __d1) {
+})(__m["exporters/_util"], __m["exporters/_values"]);
+__m["exporters/film-mo"] = (function (__d0, __d1) {
 const { moExpr, rkExpr } = __d0;
 const { groupSegments } = __d1;
 /* motion-core · exporters/film-mo.js
@@ -1333,8 +1333,8 @@ const filmRk = {
 };
 
 return { filmMo, filmRk };
-})(__m["exporters\\_util"], __m["exporters\\_util"]);
-__m["exporters\\film-camera"] = (function () {
+})(__m["exporters/_util"], __m["exporters/_util"]);
+__m["exporters/film-camera"] = (function () {
 /* motion-core · exporters/film-camera.js
    把 spec.camera 段转成 film_ai_three 的 CAM.track 事件表。
    对照：film_ai_three/代码工程/lib/camera.js 的 CAM.track(base, events, t)
@@ -1389,7 +1389,7 @@ const filmCamera = {
 
 return { filmCamera };
 })();
-__m["exporters\\json"] = (function (__d0) {
+__m["exporters/json"] = (function (__d0) {
 const { normalizeSpec, duration } = __d0;
 /* motion-core · exporters/json.js
    输出归一化后的 spec，可选附带 resolved 曲线采样表。 */
@@ -1704,7 +1704,7 @@ function lintAll({ curvesVocab, termsVocab, grammarVocab }, { strict = false } =
 
 return { KNOWN_TARGETS, IMPLEMENTED_TARGETS, lintCurves, lintTerms, lintAll };
 })(__m["registry"], __m["curves"], __m["spec"]);
-__m["exporters\\index"] = (function (__d0, __d1, __d2, __d3, __d4, __d5, __d6, __d7, __d8, __d9, __d10) {
+__m["exporters/index"] = (function (__d0, __d1, __d2, __d3, __d4, __d5, __d6, __d7, __d8, __d9, __d10) {
 const { css, cssTransition } = __d0;
 const { waapi } = __d1;
 const { gsap } = __d2;
@@ -1775,7 +1775,7 @@ function exportSpec(spec, target, opts = {}) {
 
 
 return { createExporters, exportSpec, css, cssTransition, waapi, gsap, framer, swift, compose, tailwind, filmMo, filmRk, filmCamera, json };
-})(__m["exporters\\css"], __m["exporters\\waapi"], __m["exporters\\gsap"], __m["exporters\\framer"], __m["exporters\\swift"], __m["exporters\\compose"], __m["exporters\\tailwind"], __m["exporters\\film-mo"], __m["exporters\\film-camera"], __m["exporters\\json"], __m["lint"]);
+})(__m["exporters/css"], __m["exporters/waapi"], __m["exporters/gsap"], __m["exporters/framer"], __m["exporters/swift"], __m["exporters/compose"], __m["exporters/tailwind"], __m["exporters/film-mo"], __m["exporters/film-camera"], __m["exporters/json"], __m["lint"]);
 __m["browser"] = (function (__d0, __d1, __d2, __d3, __d4, __d5) {
 const { createRegistry, CurveNotFoundError } = __d0;
 const { buildCurve, IMPLS, BEZIER, SPRING, clamp01 } = __d1;
@@ -1840,7 +1840,7 @@ function createBrowserCore(vocabs = {}) {
 }
 
 return { createBrowserCore };
-})(__m["registry"], __m["curves"], __m["spec"], __m["exporters\\index"], __m["lint"], __m["exporters\\_util"]);
+})(__m["registry"], __m["curves"], __m["spec"], __m["exporters/index"], __m["lint"], __m["exporters/_util"]);
 const core = __m["browser"].createBrowserCore({
   curves: __vocab.curves, terms: __vocab.terms, grammar: __vocab.grammar
 });

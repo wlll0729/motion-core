@@ -14,7 +14,7 @@ const SRC = join(ROOT, 'src');
 const ENTRY = join(SRC, 'browser.js');
 const OUT = join(ROOT, 'dist', 'core.umd.js');
 
-const key = (abs) => relative(SRC, abs).replace(/\.js$/, '');
+const key = (abs) => relative(SRC, abs).replace(/\\/g, '/').replace(/\.js$/, '');
 const rel = (from, to) => {
   const p = relative(dirname(from), to).replace(/^\.\//, '');
   return p.startsWith('.') ? p : './' + p;
