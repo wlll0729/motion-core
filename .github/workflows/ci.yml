@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-test:
+    name: 词表 lint + 测试
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 词表静态检查（--strict）
+        run: node bin/motion-lint.js vocab/ --strict
+
+      - name: 测试（37 项）
+        run: node --test "test/*.test.mjs"
+
+      - name: dist/core.umd.js 与源码同步
+        run: |
+          node scripts/build-umd.mjs
+          if ! git diff --exit-code -- dist/; then
+            echo "::error::dist/core.umd.js 与源码不同步——请跑 node scripts/build-umd.mjs 并把产物一起提交"
+            exit 1
+          fi
+
+      - name: 词表可重复生成（需要同级 motion-lexicon 仓库）
+        run: |
+          if [ ! -d ../motion-lexicon/assets ]; then
+            echo "::notice::未找到 ../motion-lexicon，跳过生成一致性检查"
+            exit 0
+          fi
+          node scripts/gen-terms.mjs
+          node scripts/gen-grammar.mjs
+          if ! git diff --exit-code -- vocab/; then
+            echo "::error::vocab/ 与上游数据不同步——请重新生成并提交"
+            exit 1
+          fi

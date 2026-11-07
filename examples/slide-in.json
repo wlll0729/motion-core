@@ -1,0 +1,11 @@
+{
+  "id": "slide-in",
+  "version": 1,
+  "timeline": [
+    { "id": "move", "target": "self", "prop": "translateX", "from": 46, "to": 0, "unit": "px", "start": 0, "dur": 0.48, "ease": "easeOut" },
+    { "id": "fade", "target": "self", "prop": "opacity", "from": 0, "to": 1, "unit": "none", "start": 0, "dur": 0.32, "ease": "easeOut" }
+  ],
+  "loop": { "count": 1, "direction": "normal", "fill": "both" },
+  "stagger": { "count": 1, "step": 0, "from": "start" },
+  "reducedMotion": { "strategy": "fade", "dur": 0.18 }
+}

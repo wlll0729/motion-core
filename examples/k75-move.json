@@ -1,0 +1,13 @@
+{
+  "id": "k75-move",
+  "version": 1,
+  "timeline": [
+    { "id": "move", "target": "self", "prop": "translateX", "from": -220, "to": 0, "unit": "px", "start": 0, "dur": 0.9, "ease": "k75" }
+  ],
+  "loop": { "count": 1, "direction": "normal", "fill": "both" },
+  "stagger": { "count": 1, "step": 0, "from": "start" },
+  "camera": [
+    { "at": 0, "kind": "glide", "to": { "x": 960, "y": 540, "z": 1 }, "dur": 0.9, "ease": "k75" }
+  ],
+  "reducedMotion": { "strategy": "instant", "dur": 0 }
+}

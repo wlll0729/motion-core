@@ -1,0 +1,28 @@
+{
+  "name": "motion-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "动效内核：术语表 + 曲线注册表 + MotionSpec + 导出器。词典站点 / Canvas 影视 / vibe-reel 三端共用。",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./browser": "./src/browser.js",
+    "./curves": "./src/curves.js",
+    "./registry": "./src/registry.js",
+    "./spec": "./src/spec.js",
+    "./lint": "./src/lint.js",
+    "./vocab/*": "./vocab/*"
+  },
+  "bin": {
+    "motion-lint": "./bin/motion-lint.js"
+  },
+  "scripts": {
+    "lint": "node bin/motion-lint.js vocab/",
+    "lint:strict": "node bin/motion-lint.js vocab/ --strict",
+    "test": "node --test \"test/*.test.mjs\"",
+    "build": "node scripts/build-umd.mjs",
+    "ci": "npm run lint:strict && npm test && npm run build && git diff --exit-code -- dist/",
+    "gen": "node scripts/gen-reference.mjs && node scripts/gen-terms.mjs && node scripts/gen-grammar.mjs"
+  },
+  "license": "MIT"
+}

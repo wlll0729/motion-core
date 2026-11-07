@@ -1,0 +1,56 @@
+# film 工程 CI 模板
+#
+# 用法：把本文件复制成 film_ai_three/代码工程/.github/workflows/ci.yml
+#      （需要先 `git init` 并推到 GitHub）。
+#
+# 它做两件事：
+#   1) 轻量门禁：lib/core.js 与 motion-core 的构建产物同步
+#   2) 渲染回归：跑 scripts/verify-film-integration.py（Playwright + Chromium，像素级对比）
+#
+# 注意：渲染验证会真实打开浏览器渲一帧，约需 1–2 分钟。
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    name: core.js 与 motion-core 同步
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 校验 lib/core.js
+        run: |
+          # 把 motion-core 的 dist/core.umd.js 与本工程的 lib/core.js 逐字节比对。
+          # motion-core 通过 git submodule 或 release 引入；这里给最简做法：
+          # 在工程里放一份 core.sha256，构建时比对。
+          if [ -f lib/core.sha256 ]; then
+            sha256sum -c lib/core.sha256 || {
+              echo "::error::lib/core.js 与 motion-core 构建产物不同步"; exit 1;
+            }
+          else
+            echo "::notice::未提供 lib/core.sha256，跳过同步校验"
+          fi
+
+  render:
+    name: 渲染回归（Playwright）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright pillow numpy
+          python -m playwright install chromium
+      - name: motion-core 验证脚本
+        run: |
+          git clone --depth 1 https://github.com/<你的账号>/motion-core.git /tmp/motion-core
+          python /tmp/motion-core/scripts/verify-film-integration.py .

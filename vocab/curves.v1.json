@@ -1,0 +1,2125 @@
+{
+  "version": 1,
+  "platforms": [
+    "css",
+    "waapi",
+    "gsap",
+    "framer",
+    "swift",
+    "compose",
+    "tailwind",
+    "film-mo",
+    "film-rk",
+    "json",
+    "film-camera"
+  ],
+  "curves": [
+    {
+      "name": "linear",
+      "label": {
+        "zh": "线性 / 匀速",
+        "en": "Linear"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "linear"
+      },
+      "equiv": {
+        "css": "linear",
+        "gsap": "none",
+        "framer": "linear",
+        "mo": "MO.linear",
+        "rk": "E.linear"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "native",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "匀速。只适合无始无终的持续运动（旋转、跑马灯、进度填充）。",
+      "aliases": []
+    },
+    {
+      "name": "smoothstep",
+      "label": {
+        "zh": "平滑阶梯（三次）",
+        "en": "Smoothstep (cubic)"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "smoothstep"
+      },
+      "equiv": {
+        "css": "linear(0, 0.125, 0.375, 0.625, 0.875, 1)",
+        "mo": "MO.byName('smoothstep')",
+        "rk": "E.byName('smoothstep')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "3t²−2t³。vibe-reel 的 E.smooth、ease.js 的 smoothstep。注意与五次版 smooth 区分。",
+      "aliases": []
+    },
+    {
+      "name": "smooth",
+      "label": {
+        "zh": "平滑（五次 · manim）",
+        "en": "Smooth (quintic, manim)"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "smooth"
+      },
+      "equiv": {
+        "mo": "MO.smooth",
+        "rk": "E.smooth"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "6t⁵−15t⁴+10t³，两端速度、加速度都为 0。3b1b/manim 默认缓动，讲解类片子的主力。",
+      "aliases": []
+    },
+    {
+      "name": "smoothCE",
+      "label": {
+        "zh": "平滑（ManimCE 版）",
+        "en": "Smooth (ManimCE)"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "smoothCE",
+        "args": {
+          "inflection": 10
+        }
+      },
+      "params": [
+        {
+          "name": "inflection",
+          "default": 10,
+          "min": 1,
+          "max": 40
+        }
+      ],
+      "equiv": {
+        "mo": "MO.smoothCE",
+        "rk": "E.byName('smoothCE')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "sigmoid 版 smooth，ManimCE 的 rate_functions.smooth。",
+      "aliases": []
+    },
+    {
+      "name": "doubleSmooth",
+      "label": {
+        "zh": "双段平滑",
+        "en": "Double smooth"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "doubleSmooth"
+      },
+      "equiv": {
+        "mo": "MO.doubleSmooth",
+        "rk": "E.byName('doubleSmooth')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "两段 smooth 拼接，中段更平缓。",
+      "aliases": []
+    },
+    {
+      "name": "thereAndBack",
+      "label": {
+        "zh": "去了又回",
+        "en": "There and back"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "thereAndBack"
+      },
+      "equiv": {
+        "mo": "MO.thereAndBack",
+        "rk": "E.byName('thereAndBack')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "0→1→0，用于 Indicate 一类「点一下」的强调。",
+      "aliases": []
+    },
+    {
+      "name": "rushInto",
+      "label": {
+        "zh": "慢起冲进",
+        "en": "Rush into"
+      },
+      "family": "in",
+      "def": {
+        "fn": "rushInto"
+      },
+      "equiv": {
+        "mo": "MO.rushInto",
+        "rk": "E.byName('rushInto')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "2·smooth(t/2)，慢起、冲进终点。",
+      "aliases": []
+    },
+    {
+      "name": "rushFrom",
+      "label": {
+        "zh": "冲出慢收",
+        "en": "Rush from"
+      },
+      "family": "out",
+      "def": {
+        "fn": "rushFrom"
+      },
+      "equiv": {
+        "mo": "MO.rushFrom",
+        "rk": "E.byName('rushFrom')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "2·smooth(t/2+0.5)−1，冲出、慢收。",
+      "aliases": []
+    },
+    {
+      "name": "wiggle",
+      "label": {
+        "zh": "摆动",
+        "en": "Wiggle"
+      },
+      "family": "basic",
+      "def": {
+        "fn": "wiggle",
+        "args": {
+          "wiggles": 2
+        }
+      },
+      "params": [
+        {
+          "name": "wiggles",
+          "default": 2,
+          "min": 1,
+          "max": 10
+        }
+      ],
+      "equiv": {
+        "mo": "MO.wiggle",
+        "rk": "E.byName('wiggle')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "去了又回 × 正弦，用于抖动/犹豫。",
+      "aliases": []
+    },
+    {
+      "name": "quadIn",
+      "label": {
+        "zh": "二次加速",
+        "en": "Quad in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "quadIn"
+      },
+      "equiv": {
+        "mo": "MO.byName('quadIn')",
+        "rk": "E.byName('quadIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "t²",
+      "aliases": []
+    },
+    {
+      "name": "quadOut",
+      "label": {
+        "zh": "二次减速",
+        "en": "Quad out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "quadOut"
+      },
+      "equiv": {
+        "gsap": "power1.out",
+        "rk": "E.byName('quadOut')",
+        "mo": "MO.byName('quadOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−(1−t)²",
+      "aliases": []
+    },
+    {
+      "name": "quadInOut",
+      "label": {
+        "zh": "二次缓入缓出",
+        "en": "Quad in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "quadInOut"
+      },
+      "equiv": {
+        "mo": "MO.byName('quadInOut')",
+        "rk": "E.byName('quadInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "film-camera": "native",
+        "json": "native",
+        "css-transition": "approximate"
+      },
+      "aliases": [],
+      "note": "2t² / 1−(−2t+2)²/2。vibe-reel 的 E.io 就是它。"
+    },
+    {
+      "name": "cubicIn",
+      "label": {
+        "zh": "三次加速",
+        "en": "Cubic in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "cubicIn"
+      },
+      "equiv": {
+        "gsap": "power2.in",
+        "mo": "MO.cubicIn",
+        "rk": "E.byName('cubicIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "t³",
+      "aliases": []
+    },
+    {
+      "name": "cubicOut",
+      "label": {
+        "zh": "三次减速",
+        "en": "Cubic out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "cubicOut"
+      },
+      "equiv": {
+        "gsap": "power2.out",
+        "mo": "MO.cubicOut",
+        "rk": "E.byName('cubicOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−(1−t)³。与 easeOut（贝塞尔）不同，二者都保留。",
+      "aliases": []
+    },
+    {
+      "name": "cubicInOut",
+      "label": {
+        "zh": "三次缓入缓出",
+        "en": "Cubic in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "cubicInOut"
+      },
+      "equiv": {
+        "gsap": "power2.inOut",
+        "mo": "MO.cubicInOut",
+        "rk": "E.byName('cubicInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "标准三次缓入缓出。",
+      "aliases": []
+    },
+    {
+      "name": "quartIn",
+      "label": {
+        "zh": "四次加速",
+        "en": "Quart in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "quartIn"
+      },
+      "equiv": {
+        "mo": "MO.byName('quartIn')",
+        "gsap": "power3.in",
+        "rk": "E.byName('quartIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "t⁴",
+      "aliases": []
+    },
+    {
+      "name": "quartOut",
+      "label": {
+        "zh": "四次减速",
+        "en": "Quart out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "quartOut"
+      },
+      "equiv": {
+        "mo": "MO.quartOut",
+        "gsap": "power3.out",
+        "rk": "E.byName('quartOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−(1−t)⁴",
+      "aliases": []
+    },
+    {
+      "name": "quartInOut",
+      "label": {
+        "zh": "四次缓入缓出",
+        "en": "Quart in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "quartInOut"
+      },
+      "equiv": {
+        "mo": "MO.byName('quartInOut')",
+        "gsap": "power3.inOut",
+        "rk": "E.byName('quartInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "四次缓入缓出。",
+      "aliases": []
+    },
+    {
+      "name": "quintIn",
+      "label": {
+        "zh": "五次加速",
+        "en": "Quint in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "quintIn"
+      },
+      "equiv": {
+        "mo": "MO.byName('quintIn')",
+        "gsap": "power4.in",
+        "rk": "E.byName('quintIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "t⁵",
+      "aliases": []
+    },
+    {
+      "name": "quintOut",
+      "label": {
+        "zh": "五次减速",
+        "en": "Quint out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "quintOut"
+      },
+      "equiv": {
+        "mo": "MO.quintOut",
+        "gsap": "power4.out",
+        "rk": "E.byName('quintOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−(1−t)⁵。词典里卡片滑入用的就是它。",
+      "aliases": []
+    },
+    {
+      "name": "quintInOut",
+      "label": {
+        "zh": "五次缓入缓出",
+        "en": "Quint in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "quintInOut"
+      },
+      "equiv": {
+        "mo": "MO.quintInOut",
+        "gsap": "power4.inOut",
+        "rk": "E.byName('quintInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "五次缓入缓出。",
+      "aliases": []
+    },
+    {
+      "name": "sineIn",
+      "label": {
+        "zh": "正弦加速",
+        "en": "Sine in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "sineIn"
+      },
+      "equiv": {
+        "gsap": "sine.in",
+        "mo": "MO.byName('sineIn')",
+        "rk": "E.byName('sineIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−cos(t·π/2)",
+      "aliases": []
+    },
+    {
+      "name": "sineOut",
+      "label": {
+        "zh": "正弦减速",
+        "en": "Sine out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "sineOut"
+      },
+      "equiv": {
+        "gsap": "sine.out",
+        "mo": "MO.byName('sineOut')",
+        "rk": "E.byName('sineOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "sin(t·π/2)。最温和的减速。",
+      "aliases": []
+    },
+    {
+      "name": "sineInOut",
+      "label": {
+        "zh": "正弦缓入缓出",
+        "en": "Sine in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "sineInOut"
+      },
+      "equiv": {
+        "gsap": "sine.inOut",
+        "mo": "MO.sineInOut",
+        "rk": "E.byName('sineInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "−(cos(πt)−1)/2",
+      "aliases": []
+    },
+    {
+      "name": "circIn",
+      "label": {
+        "zh": "圆弧加速",
+        "en": "Circ in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "circIn"
+      },
+      "equiv": {
+        "gsap": "circ.in",
+        "mo": "MO.byName('circIn')",
+        "rk": "E.byName('circIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−√(1−t²)",
+      "aliases": []
+    },
+    {
+      "name": "circOut",
+      "label": {
+        "zh": "圆弧减速",
+        "en": "Circ out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "circOut"
+      },
+      "equiv": {
+        "gsap": "circ.out",
+        "mo": "MO.byName('circOut')",
+        "rk": "E.byName('circOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "√(1−(t−1)²)。末端极缓，常用于大面积转场。",
+      "aliases": []
+    },
+    {
+      "name": "expoIn",
+      "label": {
+        "zh": "指数加速",
+        "en": "Expo in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "expoIn"
+      },
+      "equiv": {
+        "gsap": "expo.in",
+        "mo": "MO.expoIn",
+        "rk": "E.byName('expoIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "2^(10t−10)",
+      "aliases": []
+    },
+    {
+      "name": "expoOut",
+      "label": {
+        "zh": "指数减速",
+        "en": "Expo out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "expoOut"
+      },
+      "equiv": {
+        "gsap": "expo.out",
+        "mo": "MO.expoOut",
+        "rk": "E.byName('expoOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "1−2^(−10t)。动效设计最常用的「快出慢停」。",
+      "aliases": []
+    },
+    {
+      "name": "expoInOut",
+      "label": {
+        "zh": "指数缓入缓出",
+        "en": "Expo in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "expoInOut"
+      },
+      "equiv": {
+        "gsap": "expo.inOut",
+        "mo": "MO.expoInOut",
+        "rk": "E.byName('expoInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "指数缓入缓出。",
+      "aliases": []
+    },
+    {
+      "name": "backOut",
+      "label": {
+        "zh": "回弹减速",
+        "en": "Back out"
+      },
+      "family": "back",
+      "def": {
+        "fn": "backOut",
+        "args": {
+          "s": 1.70158
+        }
+      },
+      "params": [
+        {
+          "name": "s",
+          "default": 1.70158,
+          "min": 0,
+          "max": 6
+        }
+      ],
+      "equiv": {
+        "gsap": "back.out(1.7)",
+        "mo": "MO.backOut",
+        "rk": "E.byName('backOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "s=1.70158 约 10% 过冲；2.2 约 13%；2.6 约 17%；3.5 约 23%。",
+      "aliases": []
+    },
+    {
+      "name": "backIn",
+      "label": {
+        "zh": "回弹加速",
+        "en": "Back in"
+      },
+      "family": "back",
+      "def": {
+        "fn": "backIn",
+        "args": {
+          "s": 1.70158
+        }
+      },
+      "params": [
+        {
+          "name": "s",
+          "default": 1.70158,
+          "min": 0,
+          "max": 6
+        }
+      ],
+      "equiv": {
+        "gsap": "back.in(1.7)",
+        "mo": "MO.byName('backIn')",
+        "rk": "E.byName('backIn')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "起手反向预备（anticipation）。",
+      "aliases": []
+    },
+    {
+      "name": "backInOut",
+      "label": {
+        "zh": "回弹缓入缓出",
+        "en": "Back in-out"
+      },
+      "family": "back",
+      "def": {
+        "fn": "backInOut",
+        "args": {
+          "s": 2.590909
+        }
+      },
+      "params": [
+        {
+          "name": "s",
+          "default": 2.590909,
+          "min": 0,
+          "max": 10
+        }
+      ],
+      "equiv": {
+        "gsap": "back.inOut(1.7)",
+        "mo": "MO.byName('backInOut')",
+        "rk": "E.byName('backInOut')"
+      },
+      "platforms": {
+        "css": "approximate",
+        "waapi": "approximate",
+        "gsap": "native",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "approximate"
+      },
+      "note": "两端过冲。",
+      "aliases": []
+    },
+    {
+      "name": "elasticOut",
+      "label": {
+        "zh": "橡皮筋减速",
+        "en": "Elastic out"
+      },
+      "family": "elastic",
+      "def": {
+        "fn": "elasticOut"
+      },
+      "equiv": {
+        "gsap": "elastic.out(1, 0.4)",
+        "mo": "MO.elasticOut",
+        "rk": "E.byName('elasticOut')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "unavailable",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "橡皮筋震荡，需要 JS 驱动。",
+      "aliases": []
+    },
+    {
+      "name": "elasticIn",
+      "label": {
+        "zh": "橡皮筋加速",
+        "en": "Elastic in"
+      },
+      "family": "elastic",
+      "def": {
+        "fn": "elasticIn"
+      },
+      "equiv": {
+        "gsap": "elastic.in(1, 0.4)",
+        "mo": "MO.byName('elasticIn')",
+        "rk": "E.byName('elasticIn')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "unavailable",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "反向橡皮筋。",
+      "aliases": []
+    },
+    {
+      "name": "bounceOut",
+      "label": {
+        "zh": "落地弹跳减速",
+        "en": "Bounce out"
+      },
+      "family": "bounce",
+      "def": {
+        "fn": "bounceOut"
+      },
+      "equiv": {
+        "gsap": "bounce.out",
+        "mo": "MO.byName('bounceOut')",
+        "rk": "E.byName('bounceOut')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "unavailable",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "落地衰减弹跳。",
+      "aliases": []
+    },
+    {
+      "name": "bounceIn",
+      "label": {
+        "zh": "落地弹跳加速",
+        "en": "Bounce in"
+      },
+      "family": "bounce",
+      "def": {
+        "fn": "bounceIn"
+      },
+      "equiv": {
+        "gsap": "bounce.in",
+        "mo": "MO.byName('bounceIn')",
+        "rk": "E.byName('bounceIn')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "unavailable",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "反向弹跳。",
+      "aliases": []
+    },
+    {
+      "name": "spring",
+      "label": {
+        "zh": "弹簧",
+        "en": "Spring"
+      },
+      "family": "spring",
+      "def": {
+        "fn": "spring",
+        "args": {
+          "duration": 0.5,
+          "bounce": 0.15
+        }
+      },
+      "params": [
+        {
+          "name": "duration",
+          "default": 0.5,
+          "min": 0.1,
+          "max": 3,
+          "unit": "s"
+        },
+        {
+          "name": "bounce",
+          "default": 0.15,
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "equiv": {
+        "gsap": "elastic.out(1, 0.4)",
+        "mo": "MO.spring",
+        "rk": "E.spring"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "SwiftUI 参数化弹簧（WWDC23）：stiffness=(2π/duration)²、ζ=1−bounce。bounce 0=平滑落定、0.15=snappy、0.3=bouncy。",
+      "aliases": []
+    },
+    {
+      "name": "smoothSpring",
+      "label": {
+        "zh": "平滑弹簧",
+        "en": "Smooth spring"
+      },
+      "family": "spring",
+      "def": {
+        "fn": "spring",
+        "args": {
+          "duration": 0.5,
+          "bounce": 0
+        }
+      },
+      "equiv": {
+        "mo": "MO.smoothSpring",
+        "rk": "E.byName('smoothSpring')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "bounce=0，无过冲。",
+      "aliases": []
+    },
+    {
+      "name": "snappy",
+      "label": {
+        "zh": "弹脆弹簧",
+        "en": "Snappy spring"
+      },
+      "family": "spring",
+      "def": {
+        "fn": "spring",
+        "args": {
+          "duration": 0.5,
+          "bounce": 0.15
+        }
+      },
+      "equiv": {
+        "mo": "MO.snappy",
+        "rk": "E.byName('snappy')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "bounce=0.15。**名字冲突已处置**：词典原 `snappy` 贝塞尔改名 `quick-cut`。",
+      "aliases": []
+    },
+    {
+      "name": "bouncy",
+      "label": {
+        "zh": "弹跳弹簧",
+        "en": "Bouncy spring"
+      },
+      "family": "spring",
+      "def": {
+        "fn": "spring",
+        "args": {
+          "duration": 0.5,
+          "bounce": 0.3
+        }
+      },
+      "equiv": {
+        "mo": "MO.bouncy",
+        "rk": "E.byName('bouncy')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "bounce=0.3，明显过冲。",
+      "aliases": []
+    },
+    {
+      "name": "springHz",
+      "label": {
+        "zh": "弹簧（频率/衰减）",
+        "en": "Spring (freq/decay)"
+      },
+      "family": "spring",
+      "def": {
+        "fn": "springHz",
+        "args": {
+          "freq": 2.5,
+          "decay": 9
+        }
+      },
+      "params": [
+        {
+          "name": "freq",
+          "default": 2.5,
+          "min": 0.5,
+          "max": 10,
+          "unit": "Hz"
+        },
+        {
+          "name": "decay",
+          "default": 9,
+          "min": 1,
+          "max": 30,
+          "unit": "1/s"
+        }
+      ],
+      "equiv": {
+        "mo": "MO.springHz",
+        "rk": "E.byName('springHz')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "note": "freq 3 / decay 6 第一次过冲约 37%（砸进来的大字）；2.5 / 9 约 16%；2.2 / 10 约 8%。",
+      "aliases": []
+    },
+    {
+      "name": "settle",
+      "label": {
+        "zh": "余振回弹",
+        "en": "Settle (residual oscillation)"
+      },
+      "family": "special",
+      "def": {
+        "fn": "settle",
+        "args": {
+          "amp": 1,
+          "freq": 3,
+          "decay": 5
+        }
+      },
+      "params": [
+        {
+          "name": "amp",
+          "default": 1,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "name": "freq",
+          "default": 3,
+          "min": 0.5,
+          "max": 20,
+          "unit": "Hz"
+        },
+        {
+          "name": "decay",
+          "default": 5,
+          "min": 1,
+          "max": 30,
+          "unit": "1/s"
+        }
+      ],
+      "equiv": {
+        "mo": "MO.settle",
+        "rk": "E.byName('settle')"
+      },
+      "platforms": {
+        "css": "unavailable",
+        "waapi": "unavailable",
+        "gsap": "approximate",
+        "framer": "approximate",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "unavailable",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "unavailable"
+      },
+      "aliases": [
+        "余振",
+        "惯性回弹"
+      ],
+      "note": "到位后的余振（Dan Ebberts 惯性回弹）：amp·sin(2πft)/e^(decay·t)。换姿势的身体挤压、屏幕震动都用它。**这是位移函数，不是 0→1 进度函数。**"
+    },
+    {
+      "name": "easeIn",
+      "label": {
+        "zh": "缓入（贝塞尔）",
+        "en": "Ease in"
+      },
+      "family": "in",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.32,
+          0,
+          0.67,
+          0
+        ]
+      },
+      "aliases": [
+        "加速",
+        "accelerate"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.32, 0, 0.67, 0)",
+        "gsap": "power2.in",
+        "mo": "MO.byName('easeIn')",
+        "rk": "E.byName('easeIn')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "慢起步、快收尾。天然适合出场、收起、抛走。"
+    },
+    {
+      "name": "easeOut",
+      "label": {
+        "zh": "缓出（贝塞尔）",
+        "en": "Ease out"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.33,
+          1,
+          0.68,
+          1
+        ]
+      },
+      "aliases": [
+        "减速",
+        "decelerate",
+        "先快后慢"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.33, 1, 0.68, 1)",
+        "gsap": "power2.out",
+        "mo": "MO.byName('easeOut')",
+        "rk": "E.byName('easeOut')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "native",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "默认首选：带速度进场、平稳停住。UI 入场与状态切换最安全的选择。"
+    },
+    {
+      "name": "easeInOut",
+      "label": {
+        "zh": "缓入缓出（贝塞尔）",
+        "en": "Ease in-out"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.65,
+          0,
+          0.35,
+          1
+        ]
+      },
+      "aliases": [
+        "先慢后快再慢",
+        "对称缓动"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "gsap": "power2.inOut",
+        "mo": "MO.byName('easeInOut')",
+        "rk": "E.byName('easeInOut')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "native",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "长距离位移、来回切换。短距离用它会显得拖沓。"
+    },
+    {
+      "name": "easeOutExpo",
+      "label": {
+        "zh": "指数减速（贝塞尔）",
+        "en": "Expo out (bezier)"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.16,
+          1,
+          0.3,
+          1
+        ]
+      },
+      "aliases": [
+        "expo-out"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "gsap": "expo.out",
+        "mo": "MO.byName('easeOutExpo')",
+        "rk": "E.byName('easeOutExpo')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "戏剧化减速，前 20% 时间走完 80% 距离。"
+    },
+    {
+      "name": "easeOutBack",
+      "label": {
+        "zh": "回弹减速（贝塞尔）",
+        "en": "Back out (bezier)"
+      },
+      "family": "back",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.34,
+          1.56,
+          0.64,
+          1
+        ]
+      },
+      "aliases": [
+        "back-out"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "gsap": "back.out(1.7)",
+        "mo": "MO.byName('easeOutBack')",
+        "rk": "E.byName('easeOutBack')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "末端过冲一次，做 pop / 弹入。数学上与 backOut 近似。"
+    },
+    {
+      "name": "easeInBack",
+      "label": {
+        "zh": "回弹加速（贝塞尔）",
+        "en": "Back in (bezier)"
+      },
+      "family": "back",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.36,
+          0,
+          0.66,
+          -0.56
+        ]
+      },
+      "aliases": [
+        "back-in"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.36, 0, 0.66, -0.56)",
+        "gsap": "back.in(1.7)",
+        "mo": "MO.byName('easeInBack')",
+        "rk": "E.byName('easeInBack')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "起手反向预备（anticipation）。"
+    },
+    {
+      "name": "easeOutCirc",
+      "label": {
+        "zh": "圆弧减速（贝塞尔）",
+        "en": "Circ out (bezier)"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0,
+          0.55,
+          0.45,
+          1
+        ]
+      },
+      "aliases": [
+        "circ-out"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0, 0.55, 0.45, 1)",
+        "gsap": "circ.out",
+        "mo": "MO.byName('easeOutCirc')",
+        "rk": "E.byName('easeOutCirc')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "末端极缓，常用于大面积转场。"
+    },
+    {
+      "name": "emphasized",
+      "label": {
+        "zh": "强调曲线（M3）",
+        "en": "Emphasized (M3)"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.2,
+          0,
+          0,
+          1
+        ]
+      },
+      "aliases": [
+        "Material 3 emphasized"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.2, 0, 0, 1)",
+        "gsap": "power4.out",
+        "mo": "MO.emphasized",
+        "rk": "E.byName('emphasized')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "Material 3 emphasized：长尾减速。film 项目里用作发布会风。"
+    },
+    {
+      "name": "material",
+      "label": {
+        "zh": "标准曲线（M3）",
+        "en": "Standard (M3)"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.4,
+          0,
+          0.2,
+          1
+        ]
+      },
+      "aliases": [
+        "Material 3 standard"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "gsap": "power2.inOut",
+        "mo": "MO.byName('material')",
+        "rk": "E.byName('material')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "Material 标准曲线。"
+    },
+    {
+      "name": "quickCut",
+      "label": {
+        "zh": "快切（贝塞尔）",
+        "en": "Quick cut (bezier)"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.85,
+          0,
+          0.15,
+          1
+        ]
+      },
+      "aliases": [
+        "snappy-bezier",
+        "quick-cut"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.85, 0, 0.15, 1)",
+        "gsap": "power4.inOut",
+        "mo": "MO.byName('quickCut')",
+        "rk": "E.byName('quickCut')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "两端猛、中间极快，适合切页。**原词典 `snappy`，因与 MO 弹簧同名冲突而改名。**"
+    },
+    {
+      "name": "appleOut",
+      "label": {
+        "zh": "苹果发布会曲线",
+        "en": "Apple keynote ease"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.25,
+          0.1,
+          0.25,
+          1
+        ]
+      },
+      "aliases": [
+        "apple",
+        "发布会"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "gsap": "power2.out",
+        "mo": "MO.appleOut",
+        "rk": "E.byName('appleOut')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "native",
+        "compose": "native",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "CSS `ease` 的近似，苹果官网 / 发布会过渡。"
+    },
+    {
+      "name": "k75",
+      "label": {
+        "zh": "Kurzgesagt 75% 影响",
+        "en": "Kurzgesagt 75% influence"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.75,
+          0,
+          0.25,
+          1
+        ]
+      },
+      "aliases": [
+        "75% influence"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.75, 0, 0.25, 1)",
+        "gsap": "power2.out",
+        "mo": "MO.k75",
+        "rk": "E.byName('k75')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "Kurzgesagt 角色/物体动作的主力曲线（75% influence）。"
+    },
+    {
+      "name": "easyEase",
+      "label": {
+        "zh": "AE Easy Ease",
+        "en": "After Effects Easy Ease"
+      },
+      "family": "in-out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.333,
+          0,
+          0.667,
+          1
+        ]
+      },
+      "aliases": [
+        "easy-ease",
+        "Easy Ease"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.333, 0, 0.667, 1)",
+        "gsap": "power2.inOut",
+        "mo": "MO.easyEase",
+        "rk": "E.byName('easyEase')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "After Effects 的 Easy Ease，循环动作常用。"
+    },
+    {
+      "name": "longTail",
+      "label": {
+        "zh": "长尾减速",
+        "en": "Long tail"
+      },
+      "family": "out",
+      "def": {
+        "fn": "bezier",
+        "args": [
+          0.33,
+          0,
+          0.2,
+          1
+        ]
+      },
+      "aliases": [
+        "long-tail",
+        "长尾"
+      ],
+      "equiv": {
+        "css": "cubic-bezier(0.33, 0, 0.2, 1)",
+        "gsap": "power3.out",
+        "mo": "MO.longTail",
+        "rk": "E.byName('longTail')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "native",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "起步快、长尾落定。Vox 风格「沿线追过去」「拉出揭示」用。"
+    },
+    {
+      "name": "steps",
+      "label": {
+        "zh": "阶梯（steps）",
+        "en": "Steps"
+      },
+      "family": "steps",
+      "def": {
+        "fn": "steps",
+        "args": {
+          "n": 6,
+          "mode": "end"
+        }
+      },
+      "params": [
+        {
+          "name": "n",
+          "default": 6,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "name": "mode",
+          "default": "end",
+          "enum": [
+            "start",
+            "end",
+            "none"
+          ]
+        }
+      ],
+      "aliases": [
+        "steps(6)",
+        "逐帧"
+      ],
+      "equiv": {
+        "css": "steps(6)",
+        "gsap": "steps(6)",
+        "mo": "MO.byName('steps')",
+        "rk": "E.byName('steps')"
+      },
+      "platforms": {
+        "css": "native",
+        "waapi": "native",
+        "gsap": "native",
+        "framer": "unavailable",
+        "swift": "unavailable",
+        "compose": "unavailable",
+        "tailwind": "approximate",
+        "film-mo": "native",
+        "film-rk": "native",
+        "json": "native",
+        "film-camera": "native",
+        "css-transition": "native"
+      },
+      "note": "离散台阶。film 里 12fps 步进（拼贴纸片/打字「一拍二」）用它。"
+    }
+  ]
+}

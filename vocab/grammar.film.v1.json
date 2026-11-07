@@ -1,0 +1,591 @@
+{
+  "version": 1,
+  "note": "影视语法与转场表。grammars 是人工整理的语法条目；transitions 从 transitions.js 抽取；curveGuidance 是 MO 的选型注释。",
+  "grammars": [
+    {
+      "id": "y1-kurzgesagt",
+      "zh": "Kurzgesagt 扁平科普",
+      "en": "Kurzgesagt flat explainer",
+      "scope": "讲尺度、讲「里面是什么」、讲机制系统；娓娓道来的科普腔",
+      "core": "把抽象概念画成一个具体的物，放进能无限缩放的发光世界，相机在尺度之间穿行；环境轻轻动，主体在口播节点上变化",
+      "shot": "硬切镜头 7–9s，视觉单元每 4.6–6.7s 换一次",
+      "curves": [
+        "k75",
+        "easyEase"
+      ],
+      "transitions": [
+        "lensReveal",
+        "matchCut"
+      ],
+      "demo": "demos/y1_kurzgesagt",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y1",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "讲尺度、讲「里面是什么」、讲机制系统；娓娓道来的科普腔",
+      "say": "把抽象概念画成一个具体的物，放进能无限缩放的发光世界，相机在尺度之间穿行；环境轻轻动，主体在口播节点上变化",
+      "def": "把抽象概念画成一个具体的物，放进能无限缩放的发光世界，相机在尺度之间穿行；环境轻轻动，主体在口播节点上变化 镜头时长：硬切镜头 7–9s，视觉单元每 4.6–6.7s 换一次。",
+      "trigger": "time"
+    },
+    {
+      "id": "y2-vox",
+      "zh": "Vox 拼贴",
+      "en": "Vox collage",
+      "scope": "有真实档案、新闻、截图、人物的论证；「看这一句」「注意这个数字」",
+      "core": "论证摆在一张有真实材料的桌面上，相机像调查记者的眼睛在桌上移动，线和笔一顿一顿画上去",
+      "shot": "慢档中位 3.3s（一张卡 3–7s）；快档 1.4–1.8s",
+      "curves": [
+        "sineInOut",
+        "longTail",
+        "steps"
+      ],
+      "transitions": [
+        "cut",
+        "same",
+        "slidePush"
+      ],
+      "demo": "demos/y2_vox",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y2",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "有真实档案、新闻、截图、人物的论证；「看这一句」「注意这个数字」",
+      "say": "论证摆在一张有真实材料的桌面上，相机像调查记者的眼睛在桌上移动，线和笔一顿一顿画上去",
+      "def": "论证摆在一张有真实材料的桌面上，相机像调查记者的眼睛在桌上移动，线和笔一顿一顿画上去 镜头时长：慢档中位 3.3s（一张卡 3–7s）；快档 1.4–1.8s。",
+      "trigger": "time"
+    },
+    {
+      "id": "y3-whiteboard",
+      "zh": "白板手绘（RSA）",
+      "en": "Whiteboard (RSA)",
+      "scope": "推理链、步骤、「为什么」；边讲边推导",
+      "core": "说一句写一句，相机跟着论证在一张大白板上移动，最后拉远看全图",
+      "shot": "每块停留中位 6.6s",
+      "curves": [
+        "sineInOut"
+      ],
+      "transitions": [
+        "same"
+      ],
+      "demo": "demos/y3_whiteboard",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y3",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "推理链、步骤、「为什么」；边讲边推导",
+      "say": "说一句写一句，相机跟着论证在一张大白板上移动，最后拉远看全图",
+      "def": "说一句写一句，相机跟着论证在一张大白板上移动，最后拉远看全图 镜头时长：每块停留中位 6.6s。",
+      "trigger": "time"
+    },
+    {
+      "id": "y4-storytime",
+      "zh": "故事型简笔角色",
+      "en": "Storytime stick figures",
+      "scope": "第一人称讲经历、翻车、笑点；观众要的是「这个人」",
+      "core": "口播是主角，画面是给口播配的表情包：姿势 0.1s 快切后定住，笑点靠切到反应特写并在那一下闭嘴",
+      "shot": "ASL 2.43s（中位 1.87s）",
+      "curves": [
+        "expoOut",
+        "settle"
+      ],
+      "transitions": [
+        "cut",
+        "smash",
+        "whip"
+      ],
+      "demo": "demos/y4_storytime",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y4",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "第一人称讲经历、翻车、笑点；观众要的是「这个人」",
+      "say": "口播是主角，画面是给口播配的表情包：姿势 0.1s 快切后定住，笑点靠切到反应特写并在那一下闭嘴",
+      "def": "口播是主角，画面是给口播配的表情包：姿势 0.1s 快切后定住，笑点靠切到反应特写并在那一下闭嘴 镜头时长：ASL 2.43s（中位 1.87s）。",
+      "trigger": "time"
+    },
+    {
+      "id": "y5-kinetic-type",
+      "zh": "动态文字",
+      "en": "Kinetic typography",
+      "scope": "清单、「X 个阶段」、金句、数字开场、章节卡",
+      "core": "字就是演员：关键词踩重音砸进来，主词大到一眼读完，画面永远只有一个焦点",
+      "shot": "一小节一个镜头（120BPM 约 2s）",
+      "curves": [
+        "expoOut",
+        "springHz",
+        "expoIn"
+      ],
+      "transitions": [
+        "fillZoom",
+        "bands",
+        "push"
+      ],
+      "demo": "demos/y5_kinetic_type",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y5",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "清单、「X 个阶段」、金句、数字开场、章节卡",
+      "say": "字就是演员：关键词踩重音砸进来，主词大到一眼读完，画面永远只有一个焦点",
+      "def": "字就是演员：关键词踩重音砸进来，主词大到一眼读完，画面永远只有一个焦点 镜头时长：一小节一个镜头（120BPM 约 2s）。",
+      "trigger": "time"
+    },
+    {
+      "id": "t1-3b1b",
+      "zh": "3Blue1Brown",
+      "en": "3Blue1Brown",
+      "scope": "讲一个机制怎么一步步变成另一个东西：网络、矩阵、梯度、概率",
+      "core": "黑底上只放正在讲的那一个东西，用 Transform 把上一个概念直接变成下一个，颜色＝概念名，几乎不切",
+      "shot": "单个动画 1–3s＋停 1s；一个概念 8–20s",
+      "curves": [
+        "smooth"
+      ],
+      "transitions": [
+        "zoomThrough",
+        "fadeShift"
+      ],
+      "demo": "demos/t1_3b1b",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · t1",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "讲一个机制怎么一步步变成另一个东西：网络、矩阵、梯度、概率",
+      "say": "黑底上只放正在讲的那一个东西，用 Transform 把上一个概念直接变成下一个，颜色＝概念名，几乎不切",
+      "def": "黑底上只放正在讲的那一个东西，用 Transform 把上一个概念直接变成下一个，颜色＝概念名，几乎不切 镜头时长：单个动画 1–3s＋停 1s；一个概念 8–20s。",
+      "trigger": "time"
+    },
+    {
+      "id": "t2-keynote-ui",
+      "zh": "发布会界面",
+      "en": "Keynote UI",
+      "scope": "产品/功能发布、版本更新、教程步骤、参数公布",
+      "core": "一屏一件事，产品截图或实物当主角并推近，名词和数字在口播说到时落定；光斑底、玻璃卡是可选包装，慎用",
+      "shot": "演讲一屏 5–8s；产品快剪 1.5–3s",
+      "curves": [
+        "spring",
+        "appleOut"
+      ],
+      "transitions": [
+        "blurPush",
+        "expandRect"
+      ],
+      "demo": "demos/t2_keynote_ui",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · t2",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "产品/功能发布、版本更新、教程步骤、参数公布",
+      "say": "一屏一件事，产品截图或实物当主角并推近，名词和数字在口播说到时落定；光斑底、玻璃卡是可选包装，慎用",
+      "def": "一屏一件事，产品截图或实物当主角并推近，名词和数字在口播说到时落定；光斑底、玻璃卡是可选包装，慎用 镜头时长：演讲一屏 5–8s；产品快剪 1.5–3s。",
+      "trigger": "time"
+    },
+    {
+      "id": "t3-finance-chart",
+      "zh": "财经图表",
+      "en": "Finance charts",
+      "scope": "营收、股价、份额、拐点；观众会截图较真的数字",
+      "core": "先搭坐标系，再让数据长出来，最后只标一件事；数值永远诚实，动画只决定怎么出现",
+      "shot": "一张图 2.5–6s",
+      "curves": [
+        "quintOut",
+        "smooth"
+      ],
+      "transitions": [
+        "slidePush",
+        "zoomThrough"
+      ],
+      "demo": "demos/t3_finance_chart",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · t3",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      },
+      "cat": "film-grammar",
+      "vague": "营收、股价、份额、拐点；观众会截图较真的数字",
+      "say": "先搭坐标系，再让数据长出来，最后只标一件事；数值永远诚实，动画只决定怎么出现",
+      "def": "先搭坐标系，再让数据长出来，最后只标一件事；数值永远诚实，动画只决定怎么出现 镜头时长：一张图 2.5–6s。",
+      "trigger": "time"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "crossfade",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · crossfade",
+        "url": null
+      }
+    },
+    {
+      "id": "cut",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · cut",
+        "url": null
+      }
+    },
+    {
+      "id": "tiles",
+      "zh": "① 洞穴→埃及：新画面拆成大小不一的石块，从左向右（带随机）拼进来，落位时从略大略偏处「砌」进去",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · tiles",
+        "url": null
+      }
+    },
+    {
+      "id": "cube",
+      "zh": "② 埃及→希腊：立方体绕竖轴转面（旧面向左转走，新面从右转入），面上有明暗",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · cube",
+        "url": null
+      }
+    },
+    {
+      "id": "mosaic",
+      "zh": "③ 希腊→罗马：马赛克小砖翻面——从猫的位置向外扩散，翻面瞬间露出深色砖背",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · mosaic",
+        "url": null
+      }
+    },
+    {
+      "id": "pageTurn",
+      "zh": "④ 罗马→哥特：羊皮纸翻页，卷边从右向左扫过，背面是带淡淡旧画透印的羊皮纸",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · pageTurn",
+        "url": null
+      }
+    },
+    {
+      "id": "godRays",
+      "zh": "⑤ 哥特→文艺复兴：窗口迸出金色神光，光芒里旧画渐隐、新画浮现",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · godRays",
+        "url": null
+      }
+    },
+    {
+      "id": "wave",
+      "zh": "⑥ 文艺复兴→浮世绘：神奈川冲浪里的巨浪从左向右横扫，浪头白沫爪＋飞溅浪花，浪后是新画面",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · wave",
+        "url": null
+      }
+    },
+    {
+      "id": "dabs",
+      "zh": "⑦ 浮世绘→印象派：一笔笔短促的彩色笔触把新画面「画」上去",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · dabs",
+        "url": null
+      }
+    },
+    {
+      "id": "swirl",
+      "zh": "⑧ 印象派→梵高：星空漩涡——以窗户为中心的旋涡扭曲，新画面带着旋转卷进来、最后摆正",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · swirl",
+        "url": null
+      }
+    },
+    {
+      "id": "organic",
+      "zh": "⑨ 梵高→新艺术：从人物头部长出一块带金边的有机形状（慕夏式曲线轮廓），向外生长吞没画面",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · organic",
+        "url": null
+      }
+    },
+    {
+      "id": "shards",
+      "zh": "⑩ 新艺术→立体主义：画面碎成几何碎片，碎片错位旋转，新画面的碎片拼合落位",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · shards",
+        "url": null
+      }
+    },
+    {
+      "id": "bauhaus",
+      "zh": "⑪ 立体→包豪斯：蓝方块＋红圆＋黄三角的构成旋转放大，中心的米白圆里是新画面，最后构成扫出画面",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · bauhaus",
+        "url": null
+      }
+    },
+    {
+      "id": "zigzag",
+      "zh": "⑫ 包豪斯→波普：黄色闪电劈开＋本戴网点化，旧画面变网点、新画面从网点里显影",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · zigzag",
+        "url": null
+      }
+    },
+    {
+      "id": "pixelate",
+      "zh": "⑬ 波普→8-bit：旧画面像素块越来越大，切到新画面后像素块由大变小直至清晰",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · pixelate",
+        "url": null
+      }
+    },
+    {
+      "id": "wireframe",
+      "zh": "⑭ 8-bit→光追：黑底绿色霓虹线框（新画面的边缘＋透视网格地面），扫描线自上而下把渲染结果「算」出来",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · wireframe",
+        "url": null
+      }
+    },
+    {
+      "id": "iris",
+      "zh": "⑮ 光追→2026：三色同心环从杯子(992,601)线性扩张，外径约 143px/帧，每环厚 137px，最内环里是新画面（分镜表 T15）",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · iris",
+        "url": null
+      }
+    },
+    {
+      "id": "goldLeaf",
+      "zh": "===================== 迁移测试 A–D 收进来的转场（名字同 references/风格配方 里的配方卡） ===================== 每个都长在「进入段」风格的签名语言上：先找新风格里会「出现/点亮/扫过」的物理过程，旧画先被它污染，新画从它的形状里露出来。 ---- A：水墨 / 克里姆特 / 蒙克 / 敦煌 / 草间 ---- 水墨 → 克里姆特：金箔一片片贴上来。从少女头部按螺旋次序落下方形金箔（带螺旋/眼形/同心圆压纹）， 贴实后金色褪去露出新画面。q<0.5 贴金箔（从 1.3 倍、带旋转落位），0.5..1 金箔变透明露出 B。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · goldLeaf",
+        "url": null
+      }
+    },
+    {
+      "id": "screamWarp",
+      "zh": "克里姆特 → 蒙克：《呐喊》的血色天空从上往下「流」过画面。旧画按行正弦扭曲、幅度越来越大； 波浪形前沿以上是新画面（扭曲幅度由大变小），前沿上压 4 道黄橙红色带。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · screamWarp",
+        "url": null
+      }
+    },
+    {
+      "id": "apsara",
+      "zh": "蒙克 → 敦煌：飞天的飘带从右往左扫过，带后是壁画；前沿处旧画剥落成碎片掉下去。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · apsara",
+        "url": null
+      }
+    },
+    {
+      "id": "dotBloom",
+      "zh": "敦煌 → 草间：波点从猫的位置一圈圈长出来，点里是新画面；点胀到彼此相接就整幅换完。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · dotBloom",
+        "url": null
+      }
+    },
+    {
+      "id": "ripple",
+      "zh": "---- C：Kirby / 莫奈 / 修拉 / 马蒂斯 / 哈林 ---- ① Kirby → 莫奈：旧画面「落进水里」——逐行横向正弦错位（水面倒影的抖动）越来越强； 新画面从杯子位置以「横向短笔触」一圈圈荡开（涟漪由笔触组成），亮色水光短横线闪烁。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · ripple",
+        "url": null
+      }
+    },
+    {
+      "id": "pointill",
+      "zh": "② 莫奈 → 修拉：画面「结晶」成一样大的圆点——先旧画面长出点（点长大、底下淡成纸色）， 点按对角线波次逐个换成新画面的颜色，最后新画面在点下面显影、点收回去。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · pointill",
+        "url": null
+      }
+    },
+    {
+      "id": "cutouts",
+      "zh": "③ 修拉 → 马蒂斯：一大张刷过水粉的钴蓝纸（剪刀边）从右往左扫过，纸上钉着白海藻、黄星、粉纸片（带投影）； 纸经过的地方，后面换成了新画面。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · cutouts",
+        "url": null
+      }
+    },
+    {
+      "id": "radiant",
+      "zh": "④ 马蒂斯 → 哈林：一个粗黑轮廓的跳舞小人（双臂 V 字）从杯子处放大，身体里面是新画面， 周围一圈哈林式放射动作线；小人越长越大直到身体铺满整个画面。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · radiant",
+        "url": null
+      }
+    },
+    {
+      "id": "irisFilm",
+      "zh": "---- D：伦勃朗 / 橡皮管 / 皮影 / 新海诚 / 蓝色时期 ---- 伦勃朗 → 橡皮管卡通：旧画先褪成棕褐老胶片（闪烁＋划痕），黑色光圈收到少女杯口，再从同一点「弹」开（outBack 过冲）",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · irisFilm",
+        "url": null
+      }
+    },
+    {
+      "id": "lampGlow",
+      "zh": "橡皮管 → 皮影：旧片像灯灭一样压成暗褐剪影；幕后的油灯从中心点亮，暖光圈（边缘带灯焰抖动）向外推开，新画面在光里出现",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · lampGlow",
+        "url": null
+      }
+    },
+    {
+      "id": "flareSweep",
+      "zh": "皮影 → 新海诚：一道斜向的强光从左扫到右（漏光），光带身后是新画面；带横向拉丝、彩色光斑和飘起的光粒",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · flareSweep",
+        "url": null
+      }
+    },
+    {
+      "id": "blueBrush",
+      "zh": "新海诚 → 蓝色时期：先把旧画的颜色「抽走」只剩蓝（color 混合），再由 6 道宽大的干笔从左到右刷过，笔下就是新画；笔头带鬃毛拖痕",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · blueBrush",
+        "url": null
+      }
+    },
+    {
+      "id": "inkBloom",
+      "zh": "进入水墨：旧画先被「洗」成宣纸（去色、提亮、减对比），几团墨点从落笔处先后洇开，边缘带一圈墨晕，新画在墨里出现",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · inkBloom",
+        "url": null
+      }
+    },
+    {
+      "id": "redWedge",
+      "zh": "进入构成主义：李西茨基「红楔打白圈」——一枚红楔从左下斜刺过画面，楔尖后面是新画面；三根黑排版条跟着楔子冲进来",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · redWedge",
+        "url": null
+      }
+    },
+    {
+      "id": "comicPanels",
+      "zh": "进入 Kirby 漫画：新画面按漫画分格一格格「砸」进来（从 1.18 倍落位、黑格线），没换到的旧画面先被盖上一层本戴网点",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · comicPanels",
+        "url": null
+      }
+    },
+    {
+      "id": "chiaroscuro",
+      "zh": "进入伦勃朗：旧画沉进暗褐（暗角从四周合拢），然后一道从窗口斜下来的光柱把新画面照出来，最后暗部也慢慢显影",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · chiaroscuro",
+        "url": null
+      }
+    },
+    {
+      "id": "lensReveal",
+      "zh": "【Kurzgesagt】lensReveal 钻进镜头：A 里相机正指数推进某个圆（眼睛/镜头），B 只露在这个圆里，圆随推进长大到盖满屏，圆边一圈光环。 o.lens(t) → {x, y, r} 屏幕上的圆（由上一镜的相机算，必须和 A 的推进同步）；o.ring 光环色。圆要盖满屏：推进倍数 ≥ CAM.coverZoom(r)。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · lensReveal",
+        "url": null
+      }
+    },
+    {
+      "id": "matchCut",
+      "zh": "【Kurzgesagt】matchCut 填满再拉出：A 推进到某个色块满屏，B 从同色的东西里拉出；只在 o.at（默认中点）±o.width/2 内交叉溶解（±3 帧），两边颜色本来一样，剪点看不见。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · matchCut",
+        "url": null
+      }
+    },
+    {
+      "id": "whip",
+      "zh": "【storytime】whip 甩镜：旧画面加速甩出、新画面减速甩入，中段整屏横向运动模糊（采样 ≤8px 一张，少了读成残影）。o.dir=1 往左甩",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · whip",
+        "url": null
+      }
+    },
+    {
+      "id": "smash",
+      "zh": "【storytime】smash 砸镜：第一帧就是新画面，带 1.22 倍放大从猛到停（弹簧，夹在 ≥1 防黑边），首两帧白闪。反应特写用",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · smash",
+        "url": null
+      }
+    },
+    {
+      "id": "fillZoom",
+      "zh": "【动态文字】fillZoom 冲进色块：镜头冲进旧画面里某个形（o.cx,o.cy；形的颜色 o.fill = 新画面底色），冲满屏后新画面从 1.25 落回 1。 揭开点 = o.k（默认 .55）：卡拍时段起点 = 小节线 − k×dur（MO.onBeat）。o.maxZoom 冲进倍数（指数缩放本身就是加速，别再套 expoIn）",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · fillZoom",
+        "url": null
+      }
+    },
+    {
+      "id": "bands",
+      "zh": "【动态文字】bands 色带擦除：o.colors 几条斜切色带接力扫过（间隔 o.gap），最后一条后面是新画面。揭开点 ≈ .6",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · bands",
+        "url": null
+      }
+    },
+    {
+      "id": "push",
+      "zh": "【动态文字】push 推页：新旧一起平移（expoInOut），像镜头在长画布上滑到下一块。o.dir: 'left'（默认）| 'up'。到 90% 位移在 p≈.58",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · push",
+        "url": null
+      }
+    },
+    {
+      "id": "zoomThrough",
+      "zh": "【3b1b / 财经】zoomThrough 镜头穿越：相机推向 (cx,cy)，新画面从该物体「里面」长出来。 o: {cx, cy, zoom, r0=物体半径（圆形开口；0=不裁）, live, bg, focus:[x,y] 新画面主体位置, bScale0, ease} live:true = 旧镜头自己在转场里继续推相机（矢量重画，线条不糊；推荐）；否则把 A 当位图放大（10× 以上会糊）。 有 r0 时 zoom 要 ≥ CAM.coverZoom(r0, cx, cy)（≈1100/r0），否则开口到结束都盖不满屏，最后一帧会跳。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · zoomThrough",
+        "url": null
+      }
+    },
+    {
+      "id": "blurPush",
+      "zh": "【发布会】blurPush 模糊推进：旧画面后退（0.92）＋模糊＋变暗，新画面从 1.06 带模糊落到 1.0 清晰；底下垫一张放大重模糊的旧画面防黑边",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · blurPush",
+        "url": null
+      }
+    },
+    {
+      "id": "expandRect",
+      "zh": "【发布会】expandRect 卡片展开成全屏（共享元素）：o.rect={x,y,w,h} 是卡片在上一镜末帧的屏幕矩形、o.r 圆角；弹簧展开，里面装新画面，旧画面后退变暗。 新画面第一帧就不透明地装进卡片（卡内硬切被展开运动盖住）：卡片半透明时任何溶接都会看到新旧两层字叠在一起。",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · expandRect",
+        "url": null
+      }
+    },
+    {
+      "id": "slidePush",
+      "zh": "【财经】slidePush 面板横推：新面板从右推入、旧面板向左推出（bezier .7,0,.2,1），一道品牌色竖条 o.bar 领路",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · slidePush",
+        "url": null
+      }
+    },
+    {
+      "id": "fadeShift",
+      "zh": "【3b1b】fadeShift 淡出上移 / 淡入上移（manim FadeOut(shift=UP) + FadeIn(shift=UP)），o.shift 位移像素",
+      "source": {
+        "where": "film_ai_three/代码工程/transitions.js · fadeShift",
+        "url": null
+      }
+    },
+    {
+      "id": "same",
+      "zh": "同镜推进（相机运动即转场，画面内容不变）",
+      "source": {
+        "where": "huashu-art-motion/references/09-视频动画语法.md · y2/y3",
+        "url": "https://github.com/alchaincyf/huashu-art-motion"
+      }
+    }
+  ],
+  "curveGuidance": {
+    "note": "动效时间库 MO：缓动、弹簧、步进、错开、拍号。全部是「时间 → 数值」的纯函数，不读时钟，确定性。 来源：YouTube 解说动画语法 8 支示范片（references/09-视频动画语法.md）。约定：p 是 0..1 的进度，t/lt 是秒。 选缓动的一句话：讲解（3b1b/白板）用 smooth/sineInOut 两端都停稳；发布会用 appleOut/弹簧；动态文字用 expoOut＋弹簧； 拼贴（Vox）相机用 sineInOut 或长尾 longTail，纸片按 12fps 步进；Kurzgesagt 动作用 k75，循环用 easyEase。 (() => { const { clamp, lerp } = U; const MO = window.MO = {}; 画布尺寸 U.setStage / U.onStage 在 util.js（比本文件先加载的 paint/brush/render/post 也要登记）。",
+    "source": {
+      "where": "film_ai_three/代码工程/lib/motion.js · 文件头注释",
+      "url": null
+    }
+  }
+}

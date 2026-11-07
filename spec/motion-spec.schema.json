@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-core.local/spec/motion-spec.schema.json",
+  "title": "MotionSpec",
+  "description": "统一动效规格：一份声明式时间轴，可导出到 Web / Canvas / 移动端。",
+  "type": "object",
+  "required": ["id", "version", "timeline", "reducedMotion"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "稳定 ID，与术语表 terms.v1.json 的 id 对应"
+    },
+    "version": { "type": "integer", "const": 1 },
+
+    "timeline": {
+      "type": "array",
+      "minItems": 1,
+      "description": "动作序列；按 start 排序，允许并行（不同 prop 或不同 target）。",
+      "items": { "$ref": "#/$defs/segment" }
+    },
+
+    "loop": { "$ref": "#/$defs/loop" },
+
+    "stagger": { "$ref": "#/$defs/stagger" },
+
+    "camera": {
+      "type": "array",
+      "description": "镜头运动；仅 trigger=time 的术语使用。",
+      "items": { "$ref": "#/$defs/camera" }
+    },
+
+    "reducedMotion": { "$ref": "#/$defs/reducedMotion" }
+  },
+
+  "$defs": {
+    "segment": {
+      "type": "object",
+      "required": ["id", "target", "prop", "start", "dur", "ease"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "target": {
+          "type": "string",
+          "enum": ["self", "child", "all", "camera"],
+          "description": "self=本体；child=子元素；all=全部；camera=镜头"
+        },
+        "prop": {
+          "type": "string",
+          "enum": ["translateX", "translateY", "translateZ", "scale", "scaleX", "scaleY", "rotate", "skewX", "skewY", "opacity", "clip-path", "filter", "box-shadow", "text-shadow", "color"]
+        },
+        "from": { "type": ["number", "string"] },
+        "to": { "type": ["number", "string"] },
+        "unit": { "type": "string", "enum": ["px", "%", "deg", "none"], "default": "px" },
+        "start": { "type": "number", "minimum": 0, "description": "秒" },
+        "dur": { "type": "number", "exclusiveMinimum": 0, "description": "秒" },
+        "ease": { "type": "string", "minLength": 1, "description": "曲线主名或别名" }
+      }
+    },
+
+    "loop": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": { "type": "integer", "minimum": 1, "default": 1 },
+        "direction": { "type": "string", "enum": ["normal", "reverse", "alternate", "alternate-reverse"], "default": "normal" },
+        "fill": { "type": "string", "enum": ["none", "forwards", "backwards", "both"], "default": "both" }
+      }
+    },
+
+    "stagger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": { "type": "integer", "minimum": 1, "default": 1 },
+        "step": { "type": "number", "default": 0, "description": "秒；负值表示各项在 t=0 之前已错峰开始（环境循环常用）" },
+        "from": { "type": "string", "enum": ["start", "end", "center"], "default": "start" }
+      }
+    },
+
+    "camera": {
+      "type": "object",
+      "required": ["at", "kind", "dur"],
+      "additionalProperties": false,
+      "properties": {
+        "at": { "type": "number", "minimum": 0 },
+        "kind": { "type": "string", "enum": ["glide", "pan", "push", "slam", "shake", "cut"] },
+        "to": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "z": { "type": "number" },
+            "r": { "type": "number" }
+          }
+        },
+        "dur": { "type": "number", "exclusiveMinimum": 0 },
+        "ease": { "type": "string" },
+        "amp": { "type": "number" },
+        "from": { "type": "number" }
+      }
+    },
+
+    "reducedMotion": {
+      "type": "object",
+      "required": ["strategy"],
+      "additionalProperties": false,
+      "properties": {
+        "strategy": { "type": "string", "enum": ["fade", "instant", "none"] },
+        "dur": { "type": "number", "minimum": 0, "description": "秒；strategy=instant 时忽略" }
+      }
+    }
+  }
+}

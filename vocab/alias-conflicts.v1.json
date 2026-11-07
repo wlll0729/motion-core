@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "note": "上游 motion-lexicon 的别名冲突处置记录：先声明者保留，后者让出。",
+  "conflicts": [
+    {
+      "alias": "进度条",
+      "kept": "scroll-progress",
+      "dropped": "progress-bar"
+    },
+    {
+      "alias": "infinite",
+      "kept": "iteration",
+      "dropped": "loop"
+    },
+    {
+      "alias": "bob",
+      "kept": "nudge",
+      "dropped": "float"
+    },
+    {
+      "alias": "转圈",
+      "kept": "rotate",
+      "dropped": "spinner"
+    },
+    {
+      "alias": "RGB 分离",
+      "kept": "glitch-in",
+      "dropped": "text-glitch"
+    },
+    {
+      "alias": "mask-image",
+      "kept": "mask-reveal",
+      "dropped": "mask"
+    },
+    {
+      "alias": "RGB 分离",
+      "kept": "glitch-in",
+      "dropped": "chromatic"
+    },
+    {
+      "alias": "掉帧",
+      "kept": "jank",
+      "dropped": "dropped-frame"
+    },
+    {
+      "alias": "rotateX",
+      "kept": "rotate3d",
+      "dropped": "css-3d"
+    },
+    {
+      "alias": "turntable",
+      "kept": "orbit-camera",
+      "dropped": "orbit-controls"
+    },
+    {
+      "alias": "bloom",
+      "kept": "glow",
+      "dropped": "post-processing"
+    },
+    {
+      "alias": "泛光",
+      "kept": "glow",
+      "dropped": "post-processing"
+    },
+    {
+      "alias": "卡片堆叠",
+      "kept": "stack-in",
+      "dropped": "section-stack"
+    },
+    {
+      "alias": "tab 滑块",
+      "kept": "tab-indicator",
+      "dropped": "smooth-tabs"
+    }
+  ]
+}
