@@ -1,0 +1,19 @@
+# 统一换行符：CI 会做 `git diff --exit-code -- dist/` 这类同步校验，
+# 换行符漂移会让它误报。二进制文件不动。
+* text=auto eol=lf
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.mp4   binary
+*.mov   binary
+*.wav   binary
+*.mp3   binary
+*.zip   binary
